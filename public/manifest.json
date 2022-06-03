@@ -1,0 +1,20 @@
+{
+  "name": "neocoast-workshop",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "applications": {
+    "gecko": {
+      "id": "@neocoast-workshop"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_title": "NeoCoast Workshop",
+    "default_popup": "popup/popup.html"
+  }
+}
