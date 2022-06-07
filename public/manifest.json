@@ -22,5 +22,9 @@
   "action": {
     "default_title": "NeoCoast Workshop",
     "default_popup": "popup/popup.html"
-  }
+  },
+
+  "permissions": [
+    "storage"
+  ]
 }
