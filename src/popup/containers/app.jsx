@@ -6,11 +6,12 @@ import {
   Route,
 } from 'react-router-dom';
 
-import fetcher from '../swr/fetcher';
-import ROUTES from '../data/routes';
-import Layout from '../components/layout';
 import Home from './home';
+import Layout from '../components/layout';
 import Login from './login';
+
+import ROUTES from '../data/routes';
+import fetcher from '../swr/fetcher';
 
 const App = () => (
   <SWRConfig value={{ fetcher }}>
