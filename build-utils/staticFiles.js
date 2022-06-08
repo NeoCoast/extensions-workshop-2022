@@ -1,5 +1,5 @@
 module.exports = [
-  // { from: 'public/icons', to: 'icons' },
+  { from: 'public/icons', to: 'icons' },
   {
     from: 'public/manifest.json',
     to: '.',
