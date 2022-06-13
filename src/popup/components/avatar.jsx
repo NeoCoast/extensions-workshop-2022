@@ -3,11 +3,13 @@ import cn from 'classnames';
 import pt from 'prop-types';
 
 export const AvatarVariant = {
+  'XXS': 'xxs',
   'XS': 'xs',
   'S': 's',
 };
 
 const classes = {
+  xxs: 'w-4 h-4',
   xs: 'w-8 h-8',
   s: 'w-12 h-12',
 };
