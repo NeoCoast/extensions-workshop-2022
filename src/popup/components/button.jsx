@@ -15,21 +15,24 @@ const classes = {
 };
 
 const Button = ({
+  as = 'button',
   children,
   className = '',
   variant = ButtonVariant.Primary,
   ...props
 }) => (
-  <button
-    className={cn('h-10 rounded px-3 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed', classes[variant], className)}
-    type="button"
-    {...props}
-  >
-    {children}
-  </button>
+  React.createElement(
+    as,
+    {
+      className: cn('h-10 rounded px-3 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed', classes[variant], className),
+      ...props,
+    },
+    children
+  )
 );
 
 Button.propTypes = {
+  as: pt.elementType,
   children: pt.node,
   className: pt.string,
   variant: pt.oneOf(Object.values(ButtonVariant)),
