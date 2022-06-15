@@ -26,6 +26,7 @@
 
   "permissions": [
     "storage",
-    "downloads"
+    "downloads",
+    "notifications"
   ]
 }

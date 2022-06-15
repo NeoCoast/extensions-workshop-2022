@@ -32,6 +32,7 @@ const Upload = () => {
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('file', values.asset?.file);
+
     trigger(formData);
   };
 
