@@ -25,15 +25,17 @@ browser?.downloads?.onChanged.addListener(async (delta) => {
 });
 
 browser?.notifications?.onClicked.addListener(async (notificationID) => {
+  await browser?.notifications?.clear(notificationID);
   const data = notificationsLookup[notificationID];
   if (!data) return;
 
-  const sessionData = browser.storage.local.get([
+  const sessionData = await browser.storage.local.get([
     'accessToken',
     'client',
     'tokenType',
     'uid',
   ]);
+
   if (!sessionData) return;
 
   const filename = data.filename.split('/');
@@ -51,11 +53,35 @@ browser?.notifications?.onClicked.addListener(async (notificationID) => {
   formData.append('name', filename[filename.length - 1]);
   formData.append('file', new File([blob], filename[filename.length - 1]));
 
-  await fetch('http://localhost:4000/api/v1/assets', {
-    body: formData,
-    headers,
-    method: 'POST',
-  });
+  const iconUrl = await browser?.downloads?.getFileIcon(data?.id);
+  try {
+    await fetch('http://localhost:4000/api/v1/assets', {
+      body: formData,
+      headers,
+      method: 'POST',
+    });
 
-  browser?.notifications?.clear(notificationID);
+    await browser?.notifications?.create(
+      {
+        iconUrl,
+        message: 'Successfully uploaded image!',
+        priority: 2,
+        silent: false,
+        title: 'NeoPhotos',
+        type: 'basic',
+      },
+    );
+  } catch (error) {
+    console.log('error: ', error); // eslint-disable-line
+    await browser?.notifications?.create(
+      {
+        iconUrl,
+        message: 'Somethign went wrong :(',
+        priority: 2,
+        silent: false,
+        title: 'NeoPhotos',
+        type: 'basic',
+      },
+    );
+  }
 });
