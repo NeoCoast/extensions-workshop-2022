@@ -14,7 +14,7 @@ export default function useLogin() {
     isMutating,
   } = useSWRMutation(
     'api/v1/auth/sign_in',
-    (url, args) => fetcher(url, args, 'post'),
+    (url, args) => fetcher(url, { ...args, withAuth: false }, 'post'),
     {
       onSuccess: ({ headers }) => {
         session.persist(headers);
