@@ -9,6 +9,7 @@ import {
 import Home from './home';
 import Layout from '../components/layout';
 import Login from './login';
+import Upload from './upload';
 
 import ROUTES from '../data/routes';
 import fetcher from '../swr/fetcher';
@@ -21,6 +22,7 @@ const App = () => (
           <Route path={ROUTES.home}>
             <Route index element={<Home />} />
             <Route path={ROUTES.login} element={<Login />} />
+            <Route path={ROUTES.upload} element={<Upload />} />
           </Route>
         </Routes>
       </MemoryRouter>
