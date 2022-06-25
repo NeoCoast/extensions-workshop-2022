@@ -32,9 +32,13 @@ const Home = () => {
 
       <div className="w-full overflow-scroll px-4 pt-2 pb-0">
         {
-          assets.map((asset) => (
-            <Asset key={asset.id} {...asset} />
-          ))
+          assets.length === 0 ? (
+            'No assets :('
+          ) : (
+            assets.map((asset) => (
+              <Asset key={asset.id} {...asset} />
+            ))
+          )
         }
       </div>
     </>

@@ -4,7 +4,7 @@ import applyCaseMiddleware from 'axios-case-converter';
 import * as session from '../helpers/session';
 
 const client = applyCaseMiddleware(axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://fc88-2800-a4-167c-a400-1031-ce6e-4993-fe4c.sa.ngrok.io/',
 }));
 
 const fetcher = async (

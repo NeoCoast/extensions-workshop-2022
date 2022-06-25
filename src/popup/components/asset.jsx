@@ -10,7 +10,7 @@ const Asset = ({
   url,
   user,
 }) => (
-  <figure className="flex flex-row w-full bg-gray-100 rounded border border-gray-200 p-2 mb-2">
+  <figure className="flex flex-row justify-start w-full bg-gray-100 rounded border border-gray-200 p-2 mb-2">
     <img
       className="w-20 h-20 object-contain border border border-gray-200 bg-white"
       src={url}

@@ -26,6 +26,9 @@
 
   "permissions": [
     "storage",
-    "downloads"
-  ]
+    "downloads",
+    "notifications"
+  ],
+
+  "host_permissions": ["https://*/*", "http://*/*"]
 }
