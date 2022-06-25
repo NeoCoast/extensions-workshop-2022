@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="w-full text-xl flex flex-row items-center justify-between pb-2 mb-4 border-b border-gray-200">
+      <h1 className="w-full text-xl flex flex-row items-center justify-between pb-2 px-4 pt-4 border-b border-gray-200">
         Assets
 
         <Button>
@@ -24,7 +24,7 @@ const Home = () => {
         </Button>
       </h1>
 
-      <div className="w-full h-full">
+      <div className="w-full overflow-scroll px-4 pt-2 pb-0">
         {
           assets.map((asset) => (
             <Asset key={asset.id} {...asset} />
